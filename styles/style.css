@@ -1,0 +1,31 @@
+.fondo{
+  opacity: 0;
+}
+.cardback{
+  background-image: url('../assets/images/BackCard.png');
+  background-size: cover;
+  width:150px ;
+  height:150px;
+  margin: 1%;
+}
+
+.flex{
+  display: flex;
+}
+
+.answercorrect{
+  border: 5px solid rgb(80, 248, 80);
+  border-image: fill;
+}
+
+.answerincorrect{
+  border: 5px solid rgb(248, 80, 80);
+  border-image: fill;
+}
+
+.row{
+  display: flex;
+}
+.col{
+  width: 100%;
+}
