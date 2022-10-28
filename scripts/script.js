@@ -62,6 +62,8 @@ window.addEventListener("load", () => {
 });
 
 const dataPlay = document.getElementById("dataplay");
+const cardFound = document.getElementById("cardfound");
+const btnGame = document.getElementById("buttons");
 let cardTurn = 1;
 let previusCard = "";
 let previusCardValue = "";
@@ -69,17 +71,19 @@ let previusCardID = "";
 let foundPairs = [];
 let attempts = 0;
 
+dataPlay.innerHTML = "Intentos: " + attempts;
+
 function turn(position) {
   let card = document.getElementById(position);
   let cardValue = card.attributes[7].value;
   let cardID = card.attributes[0].value;
+  let cardFoundSection = "";
   card.classList.remove("fondo");
   if (cardTurn == 1) {
     previusCard = card;
     previusCardValue = cardValue;
     previusCardID = cardID;
   }
-
   cardTurn++;
   if (cardTurn >= 3) {
     attempts++;
@@ -100,6 +104,12 @@ function turn(position) {
     }
     card = previusCard = "";
     dataPlay.innerHTML = "Intentos: " + attempts;
+    foundPairs.forEach((result) => {
+      cardFoundSection += "<p>" + result + "</p>";
+    });
+    foundPairs.length <= 7
+      ? (cardFound.innerHTML = cardFoundSection)
+      : endGame();
   }
 }
 
@@ -118,4 +128,18 @@ function sort(cards) {
   cards = cards.sort(() => {
     return Math.random() - 0.5;
   });
+}
+
+function endGame() {
+  let cardFoundSection = "";
+  foundPairs.forEach((result) => {
+    cardFoundSection += "<p>" + result + "</p>";
+  });
+  dataPlay.innerHTML = "Juego terminado en " + attempts + " movimientos.";
+  cardFound.innerHTML = "<p>Lista de cartas de esta ronda: </p>"+ cardFoundSection;
+  btnGame.innerHTML = "<input type='button' onclick='restartGame()' value='Reiniciar juego'>"
+}
+
+function restartGame() {
+  window.location.reload();
 }

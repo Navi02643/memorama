@@ -1,31 +1,55 @@
-.fondo{
+.fondo {
   opacity: 0;
 }
-.cardback{
-  background-image: url('../assets/images/BackCard.png');
+
+.cardback {
+  background-image: url("../assets/images/BackCard.png");
   background-size: cover;
-  width:150px ;
-  height:150px;
+  width: 150px;
+  height: 150px;
   margin: 1%;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.answercorrect{
+.answercorrect {
   border: 5px solid rgb(80, 248, 80);
   border-image: fill;
 }
 
-.answerincorrect{
+.answerincorrect {
   border: 5px solid rgb(248, 80, 80);
   border-image: fill;
 }
 
-.row{
+.row {
   display: flex;
 }
-.col{
+
+.col {
   width: 100%;
+}
+
+#dataplay{
+  font-size: 200%;
+}
+
+#dataplayarea{
+  background-image: url("../assets/images/databackground.jpeg");
+  background-size: cover;
+  text-align: center;
+  padding-top: 15%;
+}
+
+#cardsarea{
+  background-image: url("../assets/images/cardbackground.webp");
+  background-size: cover;
+  text-align: center;
+  justify-items: center;
+}
+
+body{
+  background-color: black;
 }
